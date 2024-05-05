@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 
 
 
-const url = "http://localhost:4000";
+const urlApi = "http://localhost:4000";
 
 export default function Notification() {
   const { userInfo } = useContext(UserContext);
@@ -20,7 +20,7 @@ export default function Notification() {
 
  const showNotificationFriends = async () => {
     try {
-        const response = await fetch(`${url}/show-recieved-friend-requests?receiverId=${userInfo.id}`, {
+        const response = await fetch(`${urlApi}/show-recieved-friend-requests?receiverId=${userInfo.id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export default function Notification() {
   const cancelReceivedRequest = async(senderId) =>{
     
     try {
-      const response = await axios.post(`${url}/reject-recieved-request`, {
+      const response = await axios.post(`${urlApi}/reject-recieved-request`, {
         senderId: senderId,
         receiverId: userInfo.id
       });
@@ -72,7 +72,7 @@ export default function Notification() {
    const acceptRequest = async (senderId) => {
     try {
         
-        const response = await axios.post(`${url}/accept-request`, {
+        const response = await axios.post(`${urlApi}/accept-request`, {
             senderId: senderId,
             receiverId: userInfo.id
         });
@@ -118,7 +118,7 @@ export default function Notification() {
             >
               <div className="flex gap-3">
                 <img
-                  src={url + "/" + notification.senderId.profileImage}
+                  src={urlApi + "/" + notification.senderId.profileImage}
                   alt="user"
                   className="w-12 h-12 rounded-full"
                 />

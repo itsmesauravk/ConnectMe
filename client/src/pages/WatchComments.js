@@ -15,12 +15,13 @@ const WatchComments = ({ mode }) => {
     const [comment, setComment] = useState("");
     const [posts, setPosts] = useState([]);
 
+    const urlApi = "http://localhost:4000";
 
     // Handle like for the single post
     const handleLike = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:4000/post-like`, {
+            const response = await fetch(`${urlApi}/post-like`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -50,7 +51,7 @@ const WatchComments = ({ mode }) => {
     const handleComment = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:4000/post-comment`, {
+            const response = await fetch(`${urlApi}/post-comment`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -82,7 +83,7 @@ const WatchComments = ({ mode }) => {
     async function fetchPost() {
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:4000/post/${postId}`, {
+                const response = await fetch(`${urlApi}/post/${postId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

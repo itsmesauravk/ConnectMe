@@ -6,7 +6,8 @@ import '../App.css'
 
 
 
-const localhost = "http://localhost:4000"
+const urlApi = "http://localhost:4000"
+
 
 export default function LoginPage({mode}) {  
     const [email, setEmail] = useState("");
@@ -35,7 +36,7 @@ export default function LoginPage({mode}) {
             return;
         }
     
-        fetch(`${localhost}/login`, {
+        fetch(`${urlApi}/login`, {
             method: "POST",
             body: JSON.stringify({
                 email: email,

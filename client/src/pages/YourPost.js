@@ -26,6 +26,8 @@ export default function YourPost({mode}) {
 
   const [loading, setLoading] = useState(false);
 
+  const urlApi = "http://localhost:4000";
+
 
   // const [editRedirect,setEditRedirect] = useState(false)
 
@@ -34,7 +36,7 @@ export default function YourPost({mode}) {
   const showUserPosts = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:4000/yourpost/${userId}`);
+      const response = await axios.get(`${urlApi}/yourpost/${userId}`);
       const data = response.data;
       setYourPosts(data);
     } catch (error) {
@@ -52,7 +54,7 @@ export default function YourPost({mode}) {
   const deletePost = async () => {
     // const confirmDelete = window.confirm("Are you sure you want to delete this post?");
       try {
-        const response = await axios.delete(`http://localhost:4000/deletepost/${postId}`);
+        const response = await axios.delete(`${urlApi}/deletepost/${postId}`);
         const data = response.data;
         console.log("Post deleted:", data);
         showUserPosts();
@@ -76,7 +78,7 @@ export default function YourPost({mode}) {
         const formData = new FormData()
         formData.append("caption",caption)
         formData.append("image",image)
-        const response = await axios.patch(`http://localhost:4000/updatepost/${editPostId}`, 
+        const response = await axios.patch(`${urlApi}/updatepost/${editPostId}`, 
             formData
         );
         // console.log(response);
@@ -98,7 +100,7 @@ export default function YourPost({mode}) {
 const handleLike = async (postId) => {
   try {
     setLoading(true);
-    const response = await fetch(`http://localhost:4000/post-like`, {
+    const response = await fetch(`${urlApi}/post-like`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

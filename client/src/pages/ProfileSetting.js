@@ -19,6 +19,8 @@ export default function ProfileSetting({mode}){
 
     const [deleteAccount,setDeleteAccount] = useState(false)
 
+    const urlApi = "http://localhost:4000"
+
     const updateProfile = (ev) => {
       ev.preventDefault();
       setLoading(true);
@@ -29,7 +31,7 @@ export default function ProfileSetting({mode}){
       formData.append("dateOfBirth", dateOfBirth);
       formData.append("updatedProfileImage", selectedImage);
     
-      fetch(`http://localhost:4000/profilesetting/${userId}`, {
+      fetch(`${urlApi}/${userId}`, {
         method: "PATCH",
         body: formData,
       })
@@ -67,7 +69,7 @@ export default function ProfileSetting({mode}){
     // deleting account 
     const permDeleteAccount = () =>{
         try{
-            fetch(`http://localhost:4000/deleteaccount/${userId}`,{
+            fetch(`${urlApi}/deleteaccount/${userId}`,{
             method:"DELETE",
             headers:{
                 "Content-Type":"application/json"

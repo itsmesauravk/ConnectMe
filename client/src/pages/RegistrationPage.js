@@ -16,6 +16,8 @@ export default function RegistrationPage({mode}) {
   const [redirect,setRedirect] = useState(false)
   const [loading,setLoading] = useState(false)
 
+  const urlApi = "http://localhost:4000"
+
   const handleGenderChange = (event) => {
     setSelectedGender(event.target.value);
   };
@@ -35,7 +37,7 @@ export default function RegistrationPage({mode}) {
       formData.append("profileImage", selectedImage); // Assuming selectedImage is a file object
       formData.append("vipToken", vipToken);
     
-      fetch("http://localhost:4000/register", {
+      fetch(`${urlApi}/register`, {
         method: "POST",
         body: formData,
       })

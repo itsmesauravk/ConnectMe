@@ -9,6 +9,8 @@ export default function NewPostPage({mode}) {
     const {userId} = useParams();
     const [redirect,setRedirect] = useState(false)
 
+    const urlApi = "http://localhost:4000"
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -18,7 +20,7 @@ export default function NewPostPage({mode}) {
         formData.append("caption", caption);
     
         try {
-            const res = await fetch(`http://localhost:4000/newpost/${userId}`, {
+            const res = await fetch(`${urlApi}/newpost/${userId}`, {
                 method: "POST",
                 body: formData,
             });

@@ -51,7 +51,9 @@ export default function HomePage({mode}) {
   const [posts, setPosts] = useState([]);
   const [comment, setComment] = useState("");
   
-  const imageLink = "https://connect-us-drab.vercel.app/"
+  
+  const urlApi = "http://localhost:4000";
+
   //  console.log("UserInfo :", userInfo.id)
   //  console.log(posts)
 
@@ -59,7 +61,7 @@ export default function HomePage({mode}) {
     async function fetchPosts() {
       try {
         setLoading(true);
-        const response = await fetch("https://connect-us-drab.vercel.app/allpost", {
+        const response = await fetch(`${urlApi}/allpost`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -90,7 +92,7 @@ export default function HomePage({mode}) {
   const handleLike = async (postId) => {
     try {
       setLoading(true);
-      const response = await fetch(`https://connect-us-drab.vercel.app/post-like`, {
+      const response = await fetch(`${urlApi}/post-like`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -122,7 +124,7 @@ export default function HomePage({mode}) {
   const handleComment = async (postId) => {
     try {
       setLoading(true);
-      const response = await fetch(`https://connect-us-drab.vercel.app/post-comment`, {
+      const response = await fetch(`${urlApi}/post-comment`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -164,7 +166,7 @@ export default function HomePage({mode}) {
                 <img
                   src={
                     post.user.profileImage
-                      ? `${imageLink}${post.user.profileImage}`
+                      ? `${urlApi}/${post.user.profileImage}`
                       : post.user.gender === 'male'
                       ? defaultMaleImage
                       : post.user.gender === 'female'
@@ -196,7 +198,7 @@ export default function HomePage({mode}) {
           </div>
           <p className="text-lg mb-2 text-gray-700 italic">{post.caption}</p>
           <img 
-            src={`${imageLink}${post.image}`}
+            src={`${urlApi}/${post.image}`}
             alt={post.caption} 
             className="object-cover mb-2 rounded-md h-96 w-full"
           />

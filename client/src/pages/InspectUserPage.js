@@ -18,14 +18,14 @@ export default function InspectUserPage({ mode }) {
     const [comment, setComment] = useState("");
 
  
+  const urlApi = "http://localhost:4000";
 
-    const url = "http://localhost:4000";
 
     // Function to handle adding a friend
     const addFriend = async () => {
         try {
             setLoading(true);
-            const response = await axios.post(`${url}/addFriend`, {
+            const response = await axios.post(`${urlApi}/addFriend`, {
                 senderId: ownerId, 
                 receiverId: userId,
             });
@@ -44,7 +44,7 @@ export default function InspectUserPage({ mode }) {
     const showStatus = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`${url}/show-status?senderId=${ownerId}&receiverId=${userId}`, {
+            const response = await fetch(`${urlApi}/show-status?senderId=${ownerId}&receiverId=${userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export default function InspectUserPage({ mode }) {
 const requestedUserProfile = async () => {
     
     try {
-        const response = await fetch(`${url}/show-request-profile?senderId=${userId}&receiverId=${ownerId}`, {
+        const response = await fetch(`${urlApi}/show-request-profile?senderId=${userId}&receiverId=${ownerId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ const requestedUserProfile = async () => {
         try {
             // console.log(ownerId, userId)
             setLoading(true);
-            const response = await axios.post(`${url}/cancelRequest?senderId=${ownerId}&receiverId=${userId}`,{
+            const response = await axios.post(`${urlApi}/cancelRequest?senderId=${ownerId}&receiverId=${userId}`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ const requestedUserProfile = async () => {
     const acceptRequest = async () => {
         try {
             setLoading(true);
-            const response = await axios.post(`${url}/accept-request`, {
+            const response = await axios.post(`${urlApi}/accept-request`, {
                 senderId: userId,
                 receiverId: ownerId
             });
@@ -131,7 +131,7 @@ const requestedUserProfile = async () => {
     const getUsersPosts = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`${url}/yourpost/${userId}`);
+            const response = await axios.get(`${urlApi}/yourpost/${userId}`);
             setUserData(response.data[0].user);
             setUserPosts(response.data);
         } catch (error) {
@@ -145,7 +145,7 @@ const requestedUserProfile = async () => {
   const handleComment = async (postId) => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:4000/post-comment`, {
+      const response = await fetch(`${urlApi}/post-comment`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -184,7 +184,7 @@ const requestedUserProfile = async () => {
     const handleLike = async (postId) => {
         try {
           setLoading(true);
-          const response = await fetch(`http://localhost:4000/post-like`, {
+          const response = await fetch(`${urlApi}/post-like`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",

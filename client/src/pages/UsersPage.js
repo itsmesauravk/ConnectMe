@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
 // import { Link } from "react-router-dom";
 
-const url = "http://localhost:4000/";
+const urlApi = "http://localhost:4000";
 
 export default function UsersPage({mode}) {
     const [users, setUsers] = useState([]);
@@ -15,7 +15,7 @@ export default function UsersPage({mode}) {
     const getUsers = async () => {  
         try {
             setLoading(true);
-            const response = await axios.get(`${url}users`);
+            const response = await axios.get(`${urlApi}/users`);
             // console.log("data : ", response.data);
             setUsers(response.data);
         } catch (error) {
@@ -64,7 +64,7 @@ export default function UsersPage({mode}) {
                             <img
                             src={
                                 user.profileImage
-                                ? url+user.profileImage
+                                ? urlApi+"/"+user.profileImage
                                 : user.gender === 'male'
                                 ? defaultMaleImage
                                 : user.gender === 'female'

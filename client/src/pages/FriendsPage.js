@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../UserContext";
 
-const url = "https://connect-us-drab.vercel.app/";
+const url = "http://localhost:4000";
 
 export default function FriendsPage() {
   const { userInfo } = useContext(UserContext);
