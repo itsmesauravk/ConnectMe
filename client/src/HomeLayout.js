@@ -16,7 +16,7 @@ const blueTick = "https://upload.wikimedia.org/wikipedia/commons/3/32/Verified-b
 const goldTick = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Twitter_Verified_Badge_Gold.svg/2048px-Twitter_Verified_Badge_Gold.svg.png";
 // const goldTick2 = "https://seeklogo.com/images/T/twitter-verified-badge-gold-logo-48439DE18B-seeklogo.com.png";
 
-const url = "http://localhost:4000";
+const url = "https://connect-us-drab.vercel.app/";
 
 export default function HomeLayout({mode}){
     const [redirect,setRedirect] = useState(false)
