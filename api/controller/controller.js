@@ -4,13 +4,7 @@ const User = require("../schema/Users");
 const showSpecificPost = async (req, res) => {
     try {
         const { postId } = req.params;
-        const post = await Post.findById(postId).populate({
-            path: "comments",
-            populate: {
-                path: "user",
-                model: "Users"
-            }
-        });
+        const post = await Post.findById(postId).populate('comments.commenter')
 
         if (!post) {
             return res.status(404).json({ message: "Post not found" });
@@ -22,6 +16,9 @@ const showSpecificPost = async (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 }
+
+
+
 
 module.exports = {
     showSpecificPost

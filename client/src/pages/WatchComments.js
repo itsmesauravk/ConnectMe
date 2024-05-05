@@ -5,6 +5,7 @@ import { UserContext } from '../UserContext';
 
 
 
+
 const WatchComments = ({ mode }) => {
     const { userInfo } = useContext(UserContext);
     const { postId } = useParams();
@@ -74,6 +75,8 @@ const WatchComments = ({ mode }) => {
             setLoading(false);
         }
     };
+
+    
       
 
     async function fetchPost() {
@@ -100,6 +103,9 @@ const WatchComments = ({ mode }) => {
             }
         }
 
+
+
+        
     useEffect(() => {
         fetchPost();
     }, []);
@@ -167,15 +173,21 @@ const WatchComments = ({ mode }) => {
 
                         {/* for displaying all comments  */}
                     <div>  
-                        {post.comments && post.comments.map((comment) => (
+                        {post.comments && post.comments.map((comment,index) => (
                             <div className="flex items-center mt-4">
-                                <img
-                                    src={`http://localhost:4000/${comment.profileImage}`}
-                                    alt={comment.firstName}
-                                    className="w-8 h-8 rounded-full object-cover"
-                                />
-                                <p className="ml-2 text-gray-700">{comment.comment}</p>
+                                <div className="flex items-center space-x-2">
+                                    <img
+                                        src={`http://localhost:4000/${comment.commenter[index].profileImage}`}
+                                        alt={comment.firstName}
+                                        className="w-8 h-8 rounded-full object-cover"
+                                    />
+                                    <span className="text-sm font-medium text-gray-900">{comment.commenter[index].firstName} {comment.commenter[index].surname}</span>
+                                </div>
+                                <div className='ml-4'>
+                                    <p className="text-sm font-bold">{comment.comment}</p>
+                                </div>
                             </div>
+                        
                         ))}   
                     </div>
                    

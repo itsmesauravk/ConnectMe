@@ -32,7 +32,7 @@ const commentHandler = async (req, res) => {
         if (!post) {
             return res.status(404).json({ message: "Post not found" });
         }
-        post.comments.push({userId,comment});
+        post.comments.push({commenter:userId,comment});
         await post.save();
         res.status(200).json({ message: "Comment added" });
     } catch (error) {

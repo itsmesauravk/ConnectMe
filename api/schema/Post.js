@@ -13,13 +13,16 @@ const PostSchema = new mongoose.Schema({
         ref: 'Users'
     }],
     comments: [{
-        user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        commenter: [{ 
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Users' 
+        }],
         comment: String
-      }]
-    
+    }]
 }, {
-    timestamps: true // This adds createdAt and updatedAt fields
+    timestamps: true 
 });
+
 
 
 const Post = mongoose.model('Post', PostSchema)

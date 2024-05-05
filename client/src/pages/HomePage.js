@@ -141,9 +141,8 @@ export default function HomePage({mode}) {
           prevPosts.map((post) => (post._id === postId ? updatedPost : post))
         );
         setComment("");
-        alert("Comment added");
       } else {
-        alert("Comment failed");
+        console.log("Comment failed");
       }
     } catch (err) {
       console.error(err);
