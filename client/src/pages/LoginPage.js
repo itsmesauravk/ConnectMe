@@ -6,7 +6,7 @@ import '../App.css'
 
 
 
-const urlApi = "http://localhost:4000"
+const urlApi = "https://connect-us-api.vercel.app"
 
 
 export default function LoginPage({mode}) {  

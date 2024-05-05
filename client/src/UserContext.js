@@ -10,7 +10,7 @@ export function UserContextProvider({ children }) {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/profile");
+        const response = await axios.get("https://connect-us-api.vercel.app/profile");
         setUserInfo(response.data);
         setReady(true);
       } catch (error) {

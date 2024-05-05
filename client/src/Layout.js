@@ -35,21 +35,18 @@ export default function Layout({mode,toggleMode}) {
         <div className={`flex justify-between items-start h-full p-8  ${mode === 'light' ? 'light-theme' : 'dark-theme'}`}>
             
 
-            <div className="w-1/3">
+            <div className="w-full md:w-1/3">
                 {/* Left Sidebar */}
                 {/* Include your left sidebar content here */}
             </div>
 
-            <div className="w-1/3 ">
+            <div className="w-full md:w-1/3">
                 {/* Main Content */}
-                
                 <YourComponent mode={mode} toggleMode={toggleMode} />
-               
-
                 <Outlet />
             </div>
 
-            <div className="w-1/3">
+            <div className="w-full md:w-1/3">
                 {/* Right Sidebar */}
                 {/* Include your right sidebar content here */}
             </div>

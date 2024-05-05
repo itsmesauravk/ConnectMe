@@ -15,7 +15,7 @@ const WatchComments = ({ mode }) => {
     const [comment, setComment] = useState("");
     const [posts, setPosts] = useState([]);
 
-    const urlApi = "http://localhost:4000";
+    const urlApi = "https://connect-us-api.vercel.app";
 
     // Handle like for the single post
     const handleLike = async () => {

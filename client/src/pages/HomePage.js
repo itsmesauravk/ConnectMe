@@ -52,7 +52,7 @@ export default function HomePage({mode}) {
   const [comment, setComment] = useState("");
   
   
-  const urlApi = "http://localhost:4000";
+  const urlApi = "https://connect-us-api.vercel.app";
 
   //  console.log("UserInfo :", userInfo.id)
   //  console.log(posts)

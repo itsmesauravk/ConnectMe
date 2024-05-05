@@ -26,7 +26,7 @@ export default function YourPost({mode}) {
 
   const [loading, setLoading] = useState(false);
 
-  const urlApi = "http://localhost:4000";
+  const urlApi = "https://connect-us-api.vercel.app";
 
 
   // const [editRedirect,setEditRedirect] = useState(false)
@@ -131,7 +131,7 @@ const handleLike = async (postId) => {
 // if(editRedirect){
 //   return <Navigate to={`/yourpost/${userId}`} />
 // }
-  const imageLink = "http://localhost:4000/"
+  const imageLink = "https://connect-us-api.vercel.app/"
   const blueTick = "https://upload.wikimedia.org/wikipedia/commons/3/32/Verified-badge.png";
   const goldTick = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Twitter_Verified_Badge_Gold.svg/2048px-Twitter_Verified_Badge_Gold.svg.png";
 

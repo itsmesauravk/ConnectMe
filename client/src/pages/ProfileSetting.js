@@ -19,7 +19,7 @@ export default function ProfileSetting({mode}){
 
     const [deleteAccount,setDeleteAccount] = useState(false)
 
-    const urlApi = "http://localhost:4000"
+    const urlApi = "https://connect-us-api.vercel.app"
 
     const updateProfile = (ev) => {
       ev.preventDefault();

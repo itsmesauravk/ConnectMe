@@ -18,7 +18,7 @@ export default function InspectUserPage({ mode }) {
     const [comment, setComment] = useState("");
 
  
-  const urlApi = "http://localhost:4000";
+  const urlApi = "https://connect-us-api.vercel.app";
 
 
     // Function to handle adding a friend
@@ -213,7 +213,7 @@ const requestedUserProfile = async () => {
       };
 
 
-    const imageLink = "http://localhost:4000/";
+    const imageLink = "https://connect-us-api.vercel.app/";
     const blueTick = "https://upload.wikimedia.org/wikipedia/commons/3/32/Verified-badge.png";
     const goldTick = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Twitter_Verified_Badge_Gold.svg/2048px-Twitter_Verified_Badge_Gold.svg.png";
 

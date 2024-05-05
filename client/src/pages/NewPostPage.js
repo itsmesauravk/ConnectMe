@@ -9,7 +9,7 @@ export default function NewPostPage({mode}) {
     const {userId} = useParams();
     const [redirect,setRedirect] = useState(false)
 
-    const urlApi = "http://localhost:4000"
+    const urlApi = "https://connect-us-api.vercel.app"
 
     const handleSubmit = async (e) => {
         e.preventDefault();

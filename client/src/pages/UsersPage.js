@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
 // import { Link } from "react-router-dom";
 
-const urlApi = "http://localhost:4000";
+const urlApi = "https://connect-us-api.vercel.app";
 
 export default function UsersPage({mode}) {
     const [users, setUsers] = useState([]);
