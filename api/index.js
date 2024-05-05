@@ -50,20 +50,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage})   
 
 //middleware
-// app.use(cors({
-//     origin:"http://localhost:3000",
-//     credentials:true
-// }));
-const corsOptions = {
-    origin: "https://connect-us-three.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], 
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"]
-};
+app.use(cors({
+    origin:"https://connect-us-three.vercel.app",
+    
+    credentials:true
+}));
 
-// app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); 
-app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false})) 
