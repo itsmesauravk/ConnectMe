@@ -51,7 +51,7 @@ export default function HomePage({mode}) {
   const [posts, setPosts] = useState([]);
   const [comment, setComment] = useState("");
   
-  const imageLink = "http://localhost:4000/"
+  const imageLink = "https://connect-us-drab.vercel.app/"
   //  console.log("UserInfo :", userInfo.id)
   //  console.log(posts)
 
@@ -59,7 +59,7 @@ export default function HomePage({mode}) {
     async function fetchPosts() {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:4000/allpost", {
+        const response = await fetch("https://connect-us-drab.vercel.app/allpost", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -90,7 +90,7 @@ export default function HomePage({mode}) {
   const handleLike = async (postId) => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:4000/post-like`, {
+      const response = await fetch(`https://connect-us-drab.vercel.app/post-like`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -122,7 +122,7 @@ export default function HomePage({mode}) {
   const handleComment = async (postId) => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:4000/post-comment`, {
+      const response = await fetch(`https://connect-us-drab.vercel.app/post-comment`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
