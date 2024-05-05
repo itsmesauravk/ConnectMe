@@ -54,10 +54,14 @@ const upload = multer({ storage})
 //     origin:"http://localhost:3000",
 //     credentials:true
 // }));
-app.use(cors({
-    origin:["https://connect-us-three.vercel.app"],
-    credentials:true
-}));
+const corsOptions = {
+    origin: "https://connect-us-three.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], 
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({extended:false})) 
 app.use(cookieParser())
